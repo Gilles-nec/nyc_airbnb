@@ -1,0 +1,35 @@
+{
+    "os": "Linux-5.4.0-72-generic-x86_64-with-glibc2.27",
+    "python": "3.9.4",
+    "heartbeatAt": "2021-05-24T08:38:56.328473",
+    "startedAt": "2021-05-24T08:38:54.543949",
+    "docker": null,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": [
+        "--input_artifact",
+        "sample.csv:latest",
+        "--output_name",
+        "clean_sample.csv",
+        "--output_type",
+        "clean_sample",
+        "--output_description",
+        "Data with outliers and null values removed",
+        "--min_price",
+        "10",
+        "--max_price",
+        "350"
+    ],
+    "state": "running",
+    "program": "/home/emma/Downloads/nd0821-c2-build-model-workflow-starter-master/src/basic_cleaning/run.py",
+    "codePath": "src/basic_cleaning/run.py",
+    "git": {
+        "remote": "https://github.com/sandraemma03/nyc_airbnb.git",
+        "commit": "a370bcde5052bcc7979cc8b2849526f425449ced"
+    },
+    "email": "sanraemma03@gmail.com",
+    "root": "/home/emma/Downloads/nd0821-c2-build-model-workflow-starter-master",
+    "host": "ubuntu-desktop",
+    "username": "emma",
+    "executable": "/home/emma/anaconda3/envs/mlflow-9682a3c76c6747a65f06324d4d5533ad984ff36b/bin/python"
+}

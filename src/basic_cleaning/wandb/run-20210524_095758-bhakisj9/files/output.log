@@ -1,0 +1,4 @@
+2021-05-24 09:58:00,010 Fetching sample.csv:latest from W&B...
+2021-05-24 09:58:02,896 Reading with pandas
+2021-05-24 09:58:02,957 Save the results to a CSV
+2021-05-24 09:58:03,115 Uploading the cleaned file to W&B
