@@ -17,6 +17,8 @@ import wandb
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error
 from sklearn.pipeline import Pipeline
+import tempfile
+
 
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
@@ -74,7 +76,13 @@ def go(args):
     # Use run.use_artifact(...).file() to get the train and validation artifacts (args.train and args.val)
     # and store the returned path in the "train_local_path" and "val_local_path" variables
 
-    # HERE
+    # Here
+
+    logger.info(f"Fetching {args.train} from W&B...")
+    train_local_path = run.use_artifact(args.train).file()
+
+    logger.info(f"Fetching {args.val} from W&B...")
+    val_local_path = run.use_artifact(args.val).file()
 
     ##################
 
@@ -98,7 +106,11 @@ def go(args):
 
     # HERE
 
+    sk_pipe = Pipeline([('preprocessing', Preprocessing()), ('random_forest', RandomForestRegressor(**rf_config))])
+
     # Then fit it to the X_train, y_train data
+
+    sk_pipe.fit(X_train, y_train)
 
     ##################
 
@@ -126,6 +138,25 @@ def go(args):
 
     # HERE
 
+    with tempfile.TemporaryDirectory() as tmp_dir:
+        export_path = os.path.join(tmp_dir, args.output_artifact)
+        mlflow.sklearn.save_model(
+            sk_pipe,
+            export_path
+    )
+
+     # with tempfile.TemporaryDirectory() as temp_dir:
+
+     #    export_path = os.path.join(temp_dir, "model_export")
+
+     #    mlflow.sklearn.save_model(
+     #        pipe,
+     #        export_path,
+     #        serialization_format=mlflow.sklearn.SERIALIZATION_FORMAT_CLOUDPICKLE,
+     #        signature=signature,
+     #        input_example=X_val.iloc[:2],
+     #    )
+
     ##################
 
     # Upload to W&B
@@ -135,7 +166,7 @@ def go(args):
         description="Export of the RandomForest in the MLFlow sklearn format",
         metadata=rf_config,
     )
-    artifact.add_dir("random_forest_dir")
+    artifact.add_dir(args.output_artifact + '/')
     wandb.log_artifact(artifact)
 
     logger.info("Uploading plots to W&B")

@@ -65,21 +65,40 @@ def go(config: DictConfig):
                      "output_description": "Data with outliers and null values removed",
                      "min_price": config['etl']['min_price'],
                      "max_price": config['etl']['max_price']
-                 },
-             )
-            # pass
+                },
+            )
 
         if "data_check" in active_steps:
             ##################
             # Implement here #
             ##################
-            pass
+            _ = mlflow.run(
+                os.path.join(hydra.utils.get_original_cwd(), "src", "data_check"),
+                "main",
+                parameters={
+                    "csv": "clean_sample.csv:latest",
+                    "ref": "clean_sample.csv:reference",
+                    "kl_threshold": config["data_check"]["kl_threshold"],
+                    "min_price": config['etl']['min_price'],
+                    "max_price": config['etl']['max_price']
+                },
+            )
 
         if "data_split" in active_steps:
             ##################
             # Implement here #
             ##################
-            pass
+            _ = mlflow.run(
+                f"{config['main']['components_repository']}/train_val_test_split",
+                "main",
+                parameters={
+                    "input": "clean_sample.csv:latest",
+                    "test_size": config["modeling"]["test_size"],
+                    "val_size": config["modeling"]["val_size"],
+                    "random_seed": config['modeling']['random_seed'],
+                    "stratify_by": config['modeling']['stratify_by']
+                },
+            )
 
         if "train_random_forest" in active_steps:
 
@@ -95,7 +114,17 @@ def go(config: DictConfig):
             # Implement here #
             ##################
 
-            pass
+            _ = mlflow.run(
+                os.path.join(hydra.utils.get_original_cwd(), "src", "train_random_forest"),
+                "main",
+                parameters={
+                    "train": "train_data.csv:latest",
+                    "val": "val_data.csv:latest",
+                    "rf_config": rf_config,
+                    "output_artifact": "random_forest_export"
+                },
+            )
+            # pass
 
         if "test_regression_model" in active_steps:
 
@@ -103,8 +132,14 @@ def go(config: DictConfig):
             # Implement here #
             ##################
 
-            pass
-
+            _ = mlflow.run(
+                f"{config['main']['components_repository']}/test_regression_model",
+                "main",
+                parameters={
+                    "mlflow_model": "random_forest_export:prod",
+                    "test_dataset": "test_data.csv:latest",
+                },
+            )
 
 if __name__ == "__main__":
     go()
