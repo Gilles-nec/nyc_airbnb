@@ -144,19 +144,7 @@ def go(args):
             sk_pipe,
             random_forest_dir
     )
-
-     # with tempfile.TemporaryDirectory() as temp_dir:
-
-     #    export_path = os.path.join(temp_dir, "model_export")
-
-     #    mlflow.sklearn.save_model(
-     #        pipe,
-     #        export_path,
-     #        serialization_format=mlflow.sklearn.SERIALIZATION_FORMAT_CLOUDPICKLE,
-     #        signature=signature,
-     #        input_example=X_val.iloc[:2],
-     #    )
-
+        
     ##################
 
     # Upload to W&B
