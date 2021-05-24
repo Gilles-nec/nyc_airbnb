@@ -1,0 +1,15 @@
+2021-05-24 09:59:19,246 Fetching train_data.csv:latest from W&B...
+2021-05-24 09:59:22,002 Fetching val_data.csv:latest from W&B...
+2021-05-24 09:59:24,931 Preparing sklearn pipeline
+2021-05-24 10:08:38,166 Scoring
+2021-05-24 10:08:38,258 Score: 0.5392311145112327
+2021-05-24 10:08:38,258 MAE: 33.69543174342105
+2021-05-24 10:08:38,258 Exporting model
+Traceback (most recent call last):
+  File "/home/emma/Downloads/nd0821-c2-build-model-workflow-starter-master/src/train_random_forest/run.py", line 199, in <module>
+    go(args)
+  File "/home/emma/Downloads/nd0821-c2-build-model-workflow-starter-master/src/train_random_forest/run.py", line 169, in go
+    artifact.add_dir(random_forest_dir)
+  File "/home/emma/anaconda3/envs/mlflow-c9f20925689df12a82c6612b7517233b4cf40b3d/lib/python3.9/site-packages/wandb/sdk/wandb_artifacts.py", line 331, in add_dir
+    raise ValueError("Path is not a directory: %s" % local_path)
+ValueError: Path is not a directory: /tmp/tmph39rune4/random_forest_export

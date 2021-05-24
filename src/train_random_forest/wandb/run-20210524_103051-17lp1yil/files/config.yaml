@@ -1,0 +1,55 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.10.21
+    framework: sklearn
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.9.4
+    t:
+      1:
+      - 5
+      2:
+      - 5
+      4: 3.9.4
+      5: 0.10.21
+      8:
+      - 5
+    viz:
+      feature_importances:
+        historyFieldSettings:
+          key: feature_importances
+          x-axis: _step
+        id: wandb/feature_importances/v1
+criterion:
+  desc: null
+  value: mae
+max_depth:
+  desc: null
+  value: 50
+min_samples_leaf:
+  desc: null
+  value: 4
+min_samples_split:
+  desc: null
+  value: 5
+n_estimators:
+  desc: null
+  value: 200
+n_jobs:
+  desc: null
+  value: 12
+output_artifact:
+  desc: null
+  value: random_forest_export
+rf_config:
+  desc: null
+  value: /home/emma/Downloads/nd0821-c2-build-model-workflow-starter-master/outputs/2021-05-24/10-28-31/rf_config.json
+train:
+  desc: null
+  value: train_data.csv:latest
+val:
+  desc: null
+  value: val_data.csv:latest
