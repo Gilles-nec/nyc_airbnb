@@ -1,1 +1,0 @@
-{"feature_importances": {"_type": "table-file", "path": "media/table/feature_importances_0_a188522b.table.json", "sha256": "a188522bf6438b1236eac560ef0da7fcd969c7266525557c8fd2f0212f228ecc", "size": 610, "ncols": 2, "nrows": 14}, "_runtime": 561, "_timestamp": 1621849212, "_step": 1, "r2": 0.5410374285778863, "mae": 33.662585526315794}

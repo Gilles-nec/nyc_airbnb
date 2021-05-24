@@ -1,9 +1,0 @@
-2021-05-24 10:30:55,385 Fetching train_data.csv:latest from W&B...
-2021-05-24 10:31:00,326 Fetching val_data.csv:latest from W&B...
-2021-05-24 10:31:03,253 Preparing sklearn pipeline
-2021-05-24 10:40:10,643 Scoring
-2021-05-24 10:40:10,735 Score: 0.5410374285778863
-2021-05-24 10:40:10,735 MAE: 33.662585526315794
-2021-05-24 10:40:10,735 Exporting model
-wandb: Adding directory to artifact (./random_forest_export)... Done. 0.1s
-2021-05-24 10:40:11,550 Uploading plots to W&B
