@@ -143,14 +143,6 @@ def go(args):
 
     mlflow.sklearn.save_model(sk_pipe, export_dir)
 
-    # with tempfile.TemporaryDirectory() as tmp_dir:
-    #     export_dir = "random_forest_dir"
-    #     export_path = os.path.join(tmp_dir, export_dir)
-    #     mlflow.sklearn.save_model(
-    #         sk_pipe,
-    #         export_path
-    # )
-
     # Upload to W&B
     artifact = wandb.Artifact(
         name=args.output_artifact,
