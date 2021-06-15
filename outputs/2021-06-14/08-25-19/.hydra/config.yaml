@@ -1,0 +1,24 @@
+main:
+  components_repository: https://github.com/Gilles-nec/nyc_airbnb.git#components
+  project_name: nyc_airbnb
+  experiment_name: development
+  steps: all
+  wandb_api_key: 0d4cf2cb9653cf3da2eb2a7786345e2f7fc24f0f
+etl:
+  sample: sample1.csv
+  min_price: 10
+  max_price: 350
+data_check:
+  kl_threshold: 0.2
+modeling:
+  test_size: 0.2
+  val_size: 0.2
+  random_seed: 42
+  stratify_by: neighbourhood_group
+  random_forest:
+    n_estimators: 200
+    max_depth: 50
+    min_samples_split: 5
+    min_samples_leaf: 4
+    n_jobs: 12
+    criterion: mae

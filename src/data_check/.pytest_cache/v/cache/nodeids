@@ -1,0 +1,9 @@
+[
+  "test_data.py::test_column_names",
+  "test_data.py::test_neighborhood_names",
+  "test_data.py::test_no_null_values",
+  "test_data.py::test_price_range",
+  "test_data.py::test_proper_boundaries",
+  "test_data.py::test_row_count",
+  "test_data.py::test_similar_neigh_distrib"
+]

@@ -1,0 +1,15 @@
+artifact_uri: file:///home/emma/Downloads/nyc_airbnb-master/mlruns/0/25243424d07e40988d972a2519680d2b/artifacts
+end_time: 1623659567097
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: 25243424d07e40988d972a2519680d2b
+run_uuid: 25243424d07e40988d972a2519680d2b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1623659492997
+status: 3
+tags: []
+user_id: emma

@@ -1,0 +1,29 @@
+{
+    "os": "Linux-5.4.0-73-generic-x86_64-with-glibc2.27",
+    "python": "3.9.4",
+    "heartbeatAt": "2021-06-14T08:33:03.747524",
+    "startedAt": "2021-06-14T08:33:00.080106",
+    "docker": null,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": [
+        "train_data.csv:latest",
+        "val_data.csv:latest",
+        "--rf_config",
+        "/home/emma/Downloads/nyc_airbnb-master/outputs/2021-06-14/08-56-03/rf_config.json",
+        "--output_artifact",
+        "random_forest_export"
+    ],
+    "state": "running",
+    "program": "/home/emma/Downloads/nyc_airbnb-master/src/train_random_forest/run.py",
+    "codePath": "src/train_random_forest/run.py",
+    "git": {
+        "remote": "https://github.com/Gilles-nec/nyc_airbnb.git",
+        "commit": "bbdd6b3db4dae0f9e17c541e169a06e527668cd9"
+    },
+    "email": "sanraemma03@gmail.com",
+    "root": "/home/emma/Downloads/nyc_airbnb-master",
+    "host": "ubuntu-desktop",
+    "username": "emma",
+    "executable": "/home/emma/anaconda3/envs/mlflow-c9f20925689df12a82c6612b7517233b4cf40b3d/bin/python"
+}
